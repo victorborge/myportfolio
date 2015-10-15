@@ -1,0 +1,18 @@
+I"®(function() {
+  $(document).on('click', 'label[for="user_avatar"]', function() {
+    return $('#avatar_save').css('display', 'block');
+  });
+
+  $(document).on('ready page:load', function() {
+    return $('#calendar').fullCalendar({
+      events: {
+        url: '/profile/events.json',
+        error: function() {
+          return alert('There was an error while fetching events!');
+        }
+      }
+    });
+  });
+
+}).call(this);
+:ET

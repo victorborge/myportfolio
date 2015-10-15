@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Events List</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= truncate sanitize(event.content, tags: []) %></td>
+        <td><%= event.starts_at %></td>
+        <td><%= event.ends_at %></td>
+        <td><%= link_to 'Show', [:admin, event], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_admin_event_path(event), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:admin, event], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @events, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm' %>
+
+<br>
+
+<%= link_to 'Create New Event', new_admin_event_path, class: 'btn btn-primary' %>

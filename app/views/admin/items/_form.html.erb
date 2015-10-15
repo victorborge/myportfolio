@@ -1,0 +1,24 @@
+<%= simple_form_for([:admin, @item]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description, as: :ckeditor %>
+    <%= f.association :categories, input_html: { class: 'chosen-select', :'data-placeholder' => 'type here to search categories' }, label: 'Choose an existing category' %>
+    <%= f.input :new_category_name, label: 'or add a new category' %>
+    <%= f.input :amount, label: 'CV Cost' %>
+    <%= f.input :profit_margin %>
+    <%= f.input :ratio_1, label: 'Award Ratio for Tier 1' %>
+    <%= f.input :ratio_2, label: 'Award Ratio for Tier 2' %>
+    <%= f.input :ratio_3, label: 'Award Ratio for Tier 3' %>
+    <%= f.input :ratio_4, label: 'Award Ratio for Tier 4' %>
+    <%= f.input :ratio_5, label: 'Award Ratio for Tier 5' %>
+    <%= f.input :stock, label: 'Available', as: :boolean %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Save', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<br>

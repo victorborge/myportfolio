@@ -1,0 +1,13 @@
+<%= simple_form_for([:admin, @subscription]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :plan_type, collection: ['gold', 'platinum'] %>
+    <%= f.association :user, collection: User.without_active_subscriptions, label_method: :full_name, value_method: :id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Save', class: 'btn btn-primary pull-right' %>
+  </div>
+<% end %>
+<br>

@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1><%= @item.name %></h1>
+</div>
+
+<p>
+  <%= raw @item.description %>
+</p>
+
+<hr>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @item.categories.map(&:name).join(', ') %>
+</p>
+
+<p>
+  <strong>CV Cost:</strong>
+  <%= @item.amount %>
+</p>
+
+<p>
+  <strong>Profit Margin:</strong>
+  <%= @item.profit_margin %>
+</p>
+
+<p>
+  <strong>Tier 1 CV Award:</strong>
+  <%= @item.ratio_1 %>
+</p>
+
+<p>
+  <strong>Tier 2 CV Award:</strong>
+  <%= @item.ratio_2 %>
+</p>
+
+<p>
+  <strong>Tier 3 CV Award:</strong>
+  <%= @item.ratio_3 %>
+</p>
+
+<p>
+  <strong>Tier 4 CV Award:</strong>
+  <%= @item.ratio_4 %>
+</p>
+
+<p>
+  <strong>Tier 5 CV Award:</strong>
+  <%= @item.ratio_5 %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @item.stock > 0 %>
+</p>
+
+<%= link_to 'Edit', edit_admin_item_path(@item), class: 'btn btn-default' %>
+<%= link_to 'Back', admin_items_path, class: 'btn btn-default' %>

@@ -1,0 +1,16 @@
+<section class="posts-section">
+  <header class="post-title">
+    <div class="page-header">
+      <%= @event.title %>
+      <small>- <%= @event.starts_at.to_formatted_s(:long) %><%= " to #{@event.ends_at.to_formatted_s(:long)}" if @event.ends_at.present? %></small>
+    </div>
+  </header>
+  <section class="post-body">
+    <%= raw @event.content %>
+  </section>
+  <hr>
+</section>
+
+
+<%= link_to 'Edit', edit_admin_event_path(@event), class: 'btn btn-default' %>
+<%= link_to 'Back', admin_events_path, class: 'btn btn-default' %>

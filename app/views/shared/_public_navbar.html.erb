@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default navbar-reign">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_url %>">Reign Global</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <%= active_link_to 'Home', page_path(:home), active: /^\/$/, wrap_tag: :li %>
+        <%= active_link_to 'About Us', page_path(:about_us), wrap_tag: :li %>
+        <%= active_link_to 'Testimonials', page_path(:testimonials), wrap_tag: :li %>
+        <%= active_link_to 'Careers', page_path(:careers), wrap_tag: :li %>
+        <% if user_signed_in? %>
+            <%= active_link_to current_user.username || current_user.email, home_profile_path, wrap_tag: :li %>
+            <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %>  </li>
+        <% else %>
+            <%= active_link_to 'Members Login', new_user_session_path, wrap_tag: :li %>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

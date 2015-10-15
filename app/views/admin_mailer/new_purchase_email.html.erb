@@ -1,0 +1,24 @@
+<h1>New Purchase</h1>
+<p>A purchase has been made by a Reign Global member!</p>
+
+<ul>
+  <li><strong>Transaction ID:</strong> #<%= "%04d" % @purchase.id %></li>
+  <li><strong>Member ID:</strong> <%= @purchase.user.member_id %></li>
+  <li><strong>Name:</strong> <%= @purchase.user.full_name %></li>
+  <li><strong>NRIC:</strong> <%= @purchase.user.nric %></li>
+  <li><strong>Email:</strong> <%= @purchase.user.email %></li>
+  <li><strong>Contact:</strong> <%= @purchase.user.mobile_number || '-' %></li>
+  <li><strong>Address:</strong> <%= @purchase.user.address || '-' %></li>
+  <li><strong>Date of Purchase</strong>: <%= @purchase.created_at.to_formatted_s(:long) %></li>
+</ul>
+
+<ul>
+  <li><strong>Item:</strong> <%= @purchase.item.name %></li>
+  <li><strong>Quantity:</strong> <%= @purchase.quantity %></li>
+  <li><strong>Amount:</strong> <%= number_to_currency @purchase.amount %></li>
+  <li><strong>Points Used:</strong> <%= @purchase.points %></li>
+  <li><strong><%= @purchase.paid_at ? 'Amount Paid:' : 'Outstanding COD Amount:' %></strong>
+    <%= number_to_currency @purchase.payment_amount %></li>
+</ul>
+
+<p><small>This is an automated email. No reply is necessary.</small></p>

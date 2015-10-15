@@ -1,0 +1,26 @@
+New Purchase
+A purchase has been made by a Reign Global member!
+
+Transaction ID: #<%= "%04d" % @purchase.id %>
+Member ID: <%= @purchase.user.member_id %>
+Name: <%= @purchase.user.full_name %>
+NRIC: <%= @purchase.user.nric %>
+Email: <%= @purchase.user.email %>
+Contact: <%= @purchase.user.mobile_number || '-' %>
+Address: <%= @purchase.user.address || '-' %>
+Date of Purchase: <%= @purchase.created_at.to_formatted_s(:long) %>
+
+Item: <%= @purchase.item.name %>
+Quantity: <%= @purchase.quantity %>
+Amount: <%= number_to_currency @purchase.amount %>
+Points Used: <%= @purchase.points %>
+<%= @purchase.paid_at ? 'Amount Paid:' : 'Outstanding COD Amount:' %> <%= number_to_currency @purchase.payment_amount %>
+
+
+
+
+
+__________________
+Member's Signature
+
+This is an automated email. No reply is necessary.

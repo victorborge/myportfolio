@@ -1,0 +1,123 @@
+<% content_for :main_content do %>
+    <section class="full-image-block members-1">
+      <div class="image-section-content">
+        <h1>Life's Most<br>Treasured Moments</h1>
+        <p>Are Experienced Together</p>
+      </div>
+    </section>
+    <section class="no-image-block container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Become a member and join us!</h2>
+        </div>
+        <div class="col-xs-12">
+          <h4>Membership</h4>
+        </div>
+        <div class="col-xs-6">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          Aenean commodo ligula eget dolor. Aenean massa sociis
+          natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Donec quam felis, ultricies nec, pellentesque,
+          pretium quis, sem. Nulla consequat massa quis enim.
+        </div>
+        <div class="col-xs-6">
+          Nullam dictum felis eu pede mollis pretium. Integer cidunt.
+          Cras dapibus. Vivamus elementum semper nisi. Aenean
+          vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+          consequat vitae, eleifend ac, enim.
+        </div>
+      </div>
+    </section>
+    <section class="full-image-block members-2">
+      <div class="image-section-content">
+        <h1>Bringing Out The Best</h1>
+        <p>Imagine The Unimaginable</p>
+      </div>
+    </section>
+    <section class="no-image-block container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>The Greatest Reward Is a Life Well-Lived</h2>
+        </div>
+        <div class="col-xs-12">
+          <h4>Offering you daily discounts & deals</h4>
+        </div>
+        <div class="col-xs-6">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          Aenean commodo ligula eget dolor. Aenean massa sociis
+          natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Donec quam felis, ultricies nec, pellentesque,
+          pretium quis, sem. Nulla consequat massa quis enim.
+        </div>
+        <div class="col-xs-6">
+          Nullam dictum felis eu pede mollis pretium. Integer cidunt.
+          Cras dapibus. Vivamus elementum semper nisi. Aenean
+          vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+          consequat vitae, eleifend ac, enim.
+        </div>
+      </div>
+    </section>
+    <section class="steps-block container">
+      <div class="row">
+        <div class="col-xs-12 col-md-4 step">
+          <h3>1. Sign Up</h3>
+          <p>
+            Lorem ipsum dolor sit amet,<br>
+            consectetuer adipiscing elit.<br>
+            Cum sociis natoque penatib.
+          </p>
+          <div class="separators" role="presentation">
+            <div class="separator"></div>
+            <div class="separator"></div>
+            <div class="separator"></div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4 step">
+          <h3>2. Like Us</h3>
+          <p>
+            Aenean commodo ligula<br>
+            eget dolor. Aenean massa.<br>
+            Cum sociis natoque.
+          </p>
+          <div class="separators" role="presentation">
+            <div class="separator"></div>
+            <div class="separator"></div>
+            <div class="separator"></div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4 step">
+          <h3>3. Enjoy</h3>
+          <p>
+            Cum sociis natoque<br>
+            penatibus et magnis dis<br>
+            parturient mont.
+          </p>
+        </div>
+      </div>
+    </section>
+<% end %>
+<% content_for :devise_content do %>
+    <%= flash_messages %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field pre-image username">
+          <%= f.email_field :email, placeholder: 'Username', autofocus: true, class: 'styled-control' %>
+        </div>
+
+        <div class="field pre-image password">
+          <%= f.password_field :password, placeholder: 'Password', autocomplete: "off", class: 'styled-control' %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit "Log in", class: 'btn btn-primary' %>
+        </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+<% end %>

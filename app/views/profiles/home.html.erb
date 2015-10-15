@@ -1,0 +1,11 @@
+<h1>Promotions and Notices</h1>
+<section class="posts-section">
+  <% @posts.each do |post| %>
+      <header class="post-title"><%= post.title %> <small>- <%= post.created_at.to_date.to_formatted_s(:long) %></small></header>
+      <section class="post-body">
+        <%= raw post.content %>
+      </section>
+      <hr>
+  <% end %>
+  <%= paginate @posts %>
+</section>

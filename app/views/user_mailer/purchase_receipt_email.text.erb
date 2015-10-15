@@ -1,0 +1,25 @@
+Item Purchase Received
+======================
+
+Hi <%= @purchase.user.full_name %>,
+
+We have received your purchase for <%= @purchase.item.name %>.
+Our logistics personnel will contact you shortly regarding the next available delivery timing.
+
+This email serves as a purchase receipt.
+
+Thank you!
+
+
+Item Details
+------------
+
+Transaction ID: #<%= "%04d" % @purchase.id %>
+Item ID: #<%= "%05d" % @purchase.item.id %>
+Item Name: <%= @purchase.item.name %>
+Quantity: <%= @purchase.quantity %>
+Total Price: <%= number_to_currency @purchase.amount %>
+Points Used: <%= @purchase.points %>
+<%= @purchase.paid_at ? 'Amount Paid:' : 'Outstanding COD Amount:' %> <%= number_to_currency @purchase.payment_amount %>
+
+This is an automated email. No reply is neccessary.

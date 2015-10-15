@@ -1,0 +1,18 @@
+<h1>Group Statistics</h1>
+<div class="row">
+  <span class="group-stat-filter-label">Select the period</span>
+  <form class="form-inline pull-right">
+    <%= label_tag 'From' %>
+    <div class="form-group">
+      <%= date_select :users, :created_at_start, { default: @start_date || Time.zone.now - 1.month }, class: 'form-control'  %>
+    </div>
+    <%= label_tag 'To' %>
+    <div class="form-group">
+      <%= date_select :users, :created_at_end, { default: @end_date || Time.zone.now }, class: 'form-control'  %>
+    </div>
+    <button class="btn btn-default" type="submit">Filter Results</button>
+  </form>
+  <div class="col-md-12">
+    <%= column_chart chart_profile_path(params), stacked: true, height: '600px', colors: ['silver', "#c79939", "#E5E4E2"] %>
+  </div>
+</div>

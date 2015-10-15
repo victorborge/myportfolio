@@ -1,0 +1,43 @@
+<%= content_for :navbar do %>
+    <%= render partial: 'shared/user_navbar' %>
+<% end %>
+<%= content_for :content do %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+    <div class="container-fluid profile-container">
+      <%= flash_messages %>
+      <div class="row">
+        <div class="col-md-3">
+          <img class="avatar" src="<%= current_user.avatar %>" alt="Member Avatar" />
+          <%= simple_form_for current_user do |form| %>
+              <%= form.input :avatar, as: :file, label: 'Change Profile Picture' %>
+              <%= form.submit 'Save', id: 'avatar_save', class: 'btn btn-default' %>
+          <% end %>
+          <% cache(['v1_user_profile', current_user], expires_in: 1.hour) do %>
+              <ul class="profile list-unstyled">
+                <li><span class="title">Member ID</span><span class="attribute"><%= current_user.username %></span></li>
+                <li><span class="title">Rank</span><span class="attribute"><%= current_user.rank %></span></li>
+                <li><span class="title">Name</span><span class="attribute"><%= current_user.full_name %></span></li>
+                <li><span class="title">Email</span><span class="attribute"><%= current_user.email %></span></li>
+                <li><span class="title">Total CV Points</span><span class="attribute">$<%= current_user.points %></span></li>
+                <li><span class="title">Team Sales</span><span class="attribute">$<%= current_user.monthly_team_sales %></span></li>
+              </ul>
+          <% end %>
+        </div>
+        <div class="col-md-6 profile-content-container">
+          <%= content_for?(:main_content) ? yield(:main_content) : yield %>
+        </div>
+        <div class="col-md-3 sponsors">
+          <h1>Business Partners</h1>
+          <% Sponsor.all.each do |sponsor| %>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= image_tag sponsor.logo.url(:thumb) %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+<% end %>
+<%= render template: "layouts/application" %>

@@ -1,0 +1,41 @@
+<div id="carousel-reign" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="<%= image_url('home_carousel_1.png') %>" alt="Carousel Image 1">
+      <div class="carousel-caption">
+        <h1>Stir the Fires<span class="separator" role="presentation"> </span>of Curiosity</h1>
+        <p>See the world in<span class="separator" role="presentation"> </span>a whole new way</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-reign" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-reign" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<section class="home-content">
+  <div class="segment segment-left">
+    <h1>Fun, Freedom & Fulfillment</h1>
+    <p>A values and commitment based culture</p>
+    <a class="btn btn-clear" href="<%= page_path(:about_us) %>">About Us</a>
+  </div>
+  <div class="segment segment-right">
+    <h1>One Shared Vision</h1>
+    <p>Living the core values of Reign Global</p>
+    <a class="btn btn-clear" href="<%= page_path(:testimonials) %>">Testimonials</a>
+  </div>
+</section>

@@ -1,0 +1,70 @@
+#carousel-reign {
+  border-bottom: 5px solid darken($brand-primary, 10%);
+  img {
+    width: 100%;
+  }
+  .carousel-caption {
+    top: calc(50% - 33px);
+    padding-top: 0;
+    h1 {
+      font-size: 42px;
+      font-family: $font-didot-headline;
+      margin-left: -40px; // adjust to wine glass
+    }
+    p {
+      color: $brand-primary;
+      font-family: $font-dolce-vita;
+      font-weight: bold;
+    }
+    .separator {
+      display: inline-block;
+      width: 50px;
+    }
+  }
+  .carousel-indicators {
+    li {
+      transform: rotate(45deg);
+      border-radius: 0;
+      margin: 1px 5px;
+      &.active {
+        width: 10px;
+        height: 10px;
+        margin: 1px 5px;
+        border-color: $brand-primary;
+        background-color: $brand-primary;
+      }
+    }
+  }
+}
+.home-content {
+  height: 600px;
+}
+.segment {
+  display: inline-block;
+  width: 50%;
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  text-align: center;
+  padding: 80px 0;
+  font-weight: bold;
+  h1 {
+    font-family: $font-didot;
+  }
+  p {
+    font-family: $font-dolce-vita;
+  }
+  &.segment-left {
+    color: white;
+    left: 0;
+    background-image: asset-url('home_left.png');
+  }
+  &.segment-right {
+    color: $brown;
+    right: 0;
+    background-image: asset-url('home_right.png');
+    background-position: top;
+  }
+}

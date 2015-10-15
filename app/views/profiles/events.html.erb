@@ -1,0 +1,14 @@
+<h1>Events</h1>
+<section class="posts-section">
+  <% @events.each do |event| %>
+      <header class="post-title">
+        <%= event.title %>
+        <small>- <%= event.starts_at.to_formatted_s(:long) %><%= " to #{event.ends_at.to_formatted_s(:long)}" if event.ends_at.present? %></small>
+      </header>
+      <section class="post-body">
+        <%= raw event.content %>
+      </section>
+      <hr>
+  <% end %>
+  <%= paginate @events, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm' %>
+</section>

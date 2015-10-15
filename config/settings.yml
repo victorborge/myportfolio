@@ -1,0 +1,33 @@
+plans:
+  platinum:
+    pricing:
+      monthly: 2
+      yearly: 24
+    points:
+      monthly: 10
+  gold:
+    pricing:
+      monthly: 1
+      yearly: 12
+    points:
+      monthly: 10
+breakeven_points_for:
+  platinum:
+    threshold: 24
+    who_recruits:
+      platinum:
+        before_threshold: 10
+        after_threshold: 5
+      gold:
+        before_threshold: 5
+        after_threshold: 1
+  gold:
+    threshold: 12
+    who_recruits:
+      platinum:
+        before_threshold: 5
+        after_threshold: 2
+      gold:
+        before_threshold: 5
+        after_threshold: 1
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reign Global</title>
+  <script type="text/javascript" src="http://fast.fonts.net/jsapi/e9f0754c-32f4-4c31-ac94-db677eb41600.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=1680">
+</head>
+<body>
+
+<%= content_for?(:navbar) ? yield(:navbar) : (render partial: 'shared/public_navbar') %>
+
+<%= content_for?(:content) ? yield(:content) : yield %>
+
+<%= content_for?(:footer) ? yield(:footer) : (render partial: 'pages/footer') %>
+
+</body>
+</html>

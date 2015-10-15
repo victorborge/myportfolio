@@ -1,0 +1,7 @@
+I"…(function() {
+  $(document).on('click', 'label[for="user_avatar"]', function() {
+    return console.log('hi');
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,77 @@
+<div class="page-header">
+  <h1>Payment Settings</h1>
+</div>
+
+<%= simple_form_for :setting, url: admin_settings_path do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <h3>Gold Plan</h3>
+      <hr>
+
+      <h4>Fees</h4>
+      <%= direct_nested(f, [:plans, :gold, :pricing]) do |p| %>
+          <%= p.input :monthly, label: 'Monthly Price', input_html: { value: Setting['plans.gold.pricing.monthly'] } %>
+          <%= p.input :yearly, label: 'Yearly Price', input_html: { value: Setting['plans.gold.pricing.yearly'] } %>
+      <% end %>
+      <h4>Breakeven Points</h4>
+      <h5>Breakeven At</h5>
+      <%= direct_nested(f, [:breakeven_points_for, :gold]) do |p| %>
+          <%= p.input :threshold, label: 'Points threshold', input_html: { value: Setting['breakeven_points_for.gold.threshold'] } %>
+      <% end %>
+      <h5>Before Breakeven</h5>
+      <%= direct_nested(f, [:breakeven_points_for, :gold, :who_recruits, :gold]) do |p| %>
+          <%= p.input :before_threshold, label: 'Award for recruiting gold member',
+                      input_html: { value: Setting['breakeven_points_for.gold.who_recruits.gold.before_threshold'] } %>
+      <% end %>
+      <%= direct_nested(f, [:breakeven_points_for, :gold, :who_recruits, :platinum]) do |p| %>
+          <%= p.input :before_threshold, label: 'Award for recruiting platinum member',
+                      input_html: { value: Setting['breakeven_points_for.gold.who_recruits.platinum.before_threshold'] } %>
+      <% end %>
+      <h5>After Breakeven</h5>
+      <%= direct_nested(f, [:breakeven_points_for, :gold, :who_recruits, :gold]) do |p| %>
+          <%= p.input :after_threshold, label: 'Award for recruiting gold member',
+                      input_html: { value: Setting['breakeven_points_for.gold.who_recruits.gold.after_threshold'] } %>
+      <% end %>
+      <%= direct_nested(f, [:breakeven_points_for, :gold, :who_recruits, :platinum]) do |p| %>
+          <%= p.input :after_threshold, label: 'Award for recruiting platinum member',
+                      input_html: { value: Setting['breakeven_points_for.gold.who_recruits.platinum.after_threshold'] } %>
+      <% end %>
+
+      <h3>Platinum Plan</h3>
+      <hr>
+
+      <h4>Fees</h4>
+      <%= direct_nested(f, [:plans, :platinum, :pricing]) do |p| %>
+          <%= p.input :monthly, label: 'Monthly Price', input_html: { value: Setting['plans.gold.pricing.monthly'] } %>
+          <%= p.input :yearly, label: 'Yearly Price', input_html: { value: Setting['plans.gold.pricing.yearly'] } %>
+      <% end %>
+
+      <h4>Breakeven Points</h4>
+      <%= direct_nested(f, [:breakeven_points_for, :platinum]) do |p| %>
+          <%= p.input :threshold, label: 'Points threshold', input_html: { value: Setting['breakeven_points_for.platinum.threshold'] } %>
+      <% end %>
+      <h5>Before Breakeven</h5>
+      <%= direct_nested(f, [:breakeven_points_for, :platinum, :who_recruits, :gold]) do |p| %>
+          <%= p.input :before_threshold, label: 'Award for recruiting gold member',
+                      input_html: { value: Setting['breakeven_points_for.platinum.who_recruits.gold.before_threshold'] } %>
+      <% end %>
+      <%= direct_nested(f, [:breakeven_points_for, :platinum, :who_recruits, :platinum]) do |p| %>
+          <%= p.input :before_threshold, label: 'Award for recruiting platinum member',
+                      input_html: { value: Setting['breakeven_points_for.platinum.who_recruits.platinum.before_threshold'] } %>
+      <% end %>
+      <h5>After Breakeven</h5>
+      <%= direct_nested(f, [:breakeven_points_for, :platinum, :who_recruits, :gold]) do |p| %>
+          <%= p.input :after_threshold, label: 'Award for recruiting gold member',
+                      input_html: { value: Setting['breakeven_points_for.platinum.who_recruits.gold.after_threshold'] } %>
+      <% end %>
+      <%= direct_nested(f, [:breakeven_points_for, :platinum, :who_recruits, :platinum]) do |p| %>
+          <%= p.input :after_threshold, label: 'Award for recruiting platinum member',
+                      input_html: { value: Setting['breakeven_points_for.platinum.who_recruits.platinum.after_threshold'] } %>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Save', class: 'btn btn-primary' %>
+    </div>
+<% end %>

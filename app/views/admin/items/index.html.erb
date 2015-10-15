@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h1>Items List</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Categories</th>
+      <th>CV Cost</th>
+      <th>Profit Margin</th>
+      <th>CV Award Ratios</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= truncate sanitize(item.description, tags: []) %></td>
+        <td><%= item.categories.map(&:name).join(', ') %></td>
+        <td><%= item.amount %></td>
+        <td><%= item.profit_margin %></td>
+        <td><%= ratios(item) %></td>
+        <td><%= link_to 'Show', [:admin, item], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, item], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Delete', [:admin, item], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= paginate @items, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm' %>
+
+<br>
+
+<%= link_to 'Create New Item', new_admin_item_path, class: 'btn btn-primary' %>

@@ -1,0 +1,48 @@
+.auth-panel {
+  margin: 40px 0;
+  .panel-heading {
+    height: 70px;
+    padding: 10px 40px;
+    h3 {
+      font-size: 20px;
+      line-height: 50px;
+    }
+  }
+  .panel-body {
+    padding: 40px 40px;
+  }
+  .styled-control {
+    height: 50px;
+    width: 300px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    border: none;
+    font-family: $font-dolce-vita;
+    font-weight: bold;
+    @include placeholder($brand-primary);
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px #f8edd9 inset;
+    }
+    background-color: #f8edd9!important;
+    box-shadow: none;
+  }
+
+  .field {
+    &.pre-image::before {
+      position: absolute;
+      display: block;
+      content: " ";
+      height: 50px;
+      width: 50px;
+    }
+    &.username::before {
+      background: asset-url('icon_username.png') no-repeat scroll 12px 11px;
+      background-color: #f8edd9;
+    }
+    &.password::before {
+      background: asset-url('icon_password.png') no-repeat scroll 12px 17px;
+      background-color: #f8edd9;
+    }
+  }
+}

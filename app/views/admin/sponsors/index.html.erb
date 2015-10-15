@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>Sponsors List</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Logo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @sponsors.each do |sponsor| %>
+      <tr>
+        <td><%= sponsor.name %></td>
+        <td><%= image_tag sponsor.logo.url(:thumb) %></td>
+        <td><%= link_to 'Show', [:admin, sponsor], class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Edit', edit_admin_sponsor_path(sponsor), class: 'btn btn-xs btn-default' %></td>
+        <td><%= link_to 'Destroy', [:admin, sponsor], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create New Sponsor', new_admin_sponsor_path, class: 'btn btn-primary' %>

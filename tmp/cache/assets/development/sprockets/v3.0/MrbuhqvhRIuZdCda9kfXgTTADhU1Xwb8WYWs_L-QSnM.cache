@@ -1,0 +1,25 @@
+I"k(function() {
+  $(document).on('click', 'label[for="user_avatar"]', function() {
+    return $('#avatar_save').css('display', 'block');
+  });
+
+  $(document).on('ready page:load', function() {
+    return $('#calendar').fullCalendar({
+      header: {
+        right: 'prev,next today',
+        left: 'title',
+        center: 'month agendaWeek agendaDay'
+      },
+      timeFormat: 'h(:mm)a',
+      events: {
+        url: '/profile/events.json',
+        error: function() {
+          return alert('There was an error while fetching events!');
+        }
+      },
+      eventClick: function() {}
+    });
+  });
+
+}).call(this);
+:ET

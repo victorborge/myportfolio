@@ -1,0 +1,49 @@
+<h1>RG Products</h1>
+<section class="posts-section">
+  <div class="row">
+    <div class="col-md-push-9 col-md-3 col-sm-12">
+      <%= form_tag items_path, method: 'get' do %>
+          <div class="form-group">
+            <label for="items-per-page">Items Per Page</label>
+            <%= select_tag 'items_per_page',
+                           options_for_select([[10,10],[20,20],[50,50],[100,100]], params[:items_per_page]),
+                           value: params[:items_per_page],
+                           class: 'form-control' %>
+            <%= hidden_field_tag 'category', params[:category] if params[:category].present? %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <% @items.each do |item| %>
+      <section id="post" class="post-container" data-title="<%= item.name %>" data-amount="<%= item.amount %>">
+        <header class="post-title"><%= item.name %> - <small>$<%= pluralize item.amount, ' / CV Point' %></small></header>
+        <div class="post-body">
+          <%= truncate_html(item.description, length: 100, omission: ".. <a class=see-more href=#{item_path(item)}>See More</a>") %>
+        </div>
+        <div class="item-purchase">
+          <%= link_to 'Buy Now', new_item_purchase_path(item), class: 'btn btn-default' %>
+          <p>CV cashback ratios: <%= ratios(item) %></p>
+        </div>
+      </section>
+      <hr>
+  <% end %>
+  <%= "<p>No items here yet!</p>".html_safe if @items.empty? %>
+  <%= paginate @items, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm' %>
+</section>
+<div id="item-modal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class='modal-header'>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title" id="item-modal-title">Item</h3>
+      </div>
+      <div class='modal-body'>
+        <div class="modal-body-content" id="item-modal-content"></div>
+      </div>
+      <div class='modal-footer'>
+        <%= link_to 'Buy Now', '#!', method: :post, class: 'btn btn-primary' %>
+        <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

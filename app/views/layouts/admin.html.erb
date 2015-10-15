@@ -1,0 +1,31 @@
+<%= content_for :navbar do %>
+    <%= render partial: 'shared/admin_navbar' %>
+<% end %>
+<%= content_for :content do %>
+    <% if admin_signed_in? %>
+        <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" %>
+        <div class="container admin-container">
+          <!--<img class="logo" src="<%#= image_url('logo.png') %>">-->
+          <%= flash_messages %>
+          <%= yield %>
+        </div>
+    <% else %>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-8 col-xs-push-2">
+              <div class="panel panel-primary auth-panel">
+                <div class="panel-heading">
+                  <h3 class="panel-title">ADMIN LOGIN</h3>
+                </div>
+                <div class="panel-body">
+                  <%= flash_messages %>
+                  <%= yield %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+<% end %>
+<%= content_for :footer, raw('<div></div>') %>
+<%= render template: "layouts/application" %>

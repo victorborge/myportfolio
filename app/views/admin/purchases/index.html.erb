@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h1>Member Purchases</h1>
+</div>
+
+<%= form_tag admin_purchases_path, method: 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search], placeholder: 'Item or Member' %>
+      <%= submit_tag "Search", class: 'btn btn-xs btn-default' %>
+    </p>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Member</th>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Total Amount</th>
+      <th>Points Used</th>
+      <th>Purchase Date</th>
+      <th>Collection Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchases.each do |purchase| %>
+      <tr>
+        <td>#<%= "%04d" % purchase.id %></td>
+        <td><span data-toggle="tooltip" title="<%= "#{purchase.user.nric} / #{purchase.user.mobile_number} / #{purchase.user.email}" %>">
+          <%= purchase.user.full_name %>
+        </span></td>
+        <td><%= purchase.item.name %></td>
+        <td><%= purchase.quantity %></td>
+        <td><%= number_to_currency purchase.amount %></td>
+        <td><%= purchase.points %></td>
+        <td><%= purchase.paid_at ? purchase.paid_at.to_formatted_s(:short) : (purchase.paypal_id ? 'Pending' : 'COD') %></td>
+        <td><%= purchase.claimed_at.try(:to_formatted_s, :short) || 'Not Yet Claimed' %></td>
+        <td><%= link_to 'Member Details', admin_user_path(purchase.user), class: 'btn btn-default btn-xs' %></td>
+        <td><%= action_button(purchase) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @purchases, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm' %>

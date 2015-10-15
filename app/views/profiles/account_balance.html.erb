@@ -1,0 +1,33 @@
+<h1>Account Summary</h1>
+<div class="row">
+  <div class="col-md-8">
+    <h2>Redeemed Items</h2>
+    <% if current_user.recent_purchases.any? %>
+        <ul>
+          <% current_user.recent_purchases.each do |purchase| %>
+              <li><%= purchase.item.name %></li>
+          <% end %>
+        </ul>
+    <% else %>
+        No redemptions yet.
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="tribox">
+      <div class="tribox-section tribox-top">
+        <span class="tribox-main-content"><%= number_with_delimiter current_user.points_earned %></span>
+        <span class="tribox-sub-content">CV Points Earned</span>
+      </div>
+      <div class="tribox-section tribox-mid">
+        <span class="tribox-main-content"><%= number_with_delimiter current_user.points %></span>
+        <span class="tribox-sub-content">CV Points Balance</span>
+      </div>
+      <div class="tribox-section tribox-btm">
+        <%= link_to 'Buy with CV Points', items_path, class: 'btn btn-link' %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <%= column_chart chart_profile_path(all_time: true), stacked: true, height: '600px', colors: ['silver', "#c79939", "#E5E4E2"] %>
+  </div>
+</div>

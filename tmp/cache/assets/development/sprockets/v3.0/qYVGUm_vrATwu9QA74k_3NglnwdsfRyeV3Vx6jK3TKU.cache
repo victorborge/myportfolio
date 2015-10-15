@@ -1,0 +1,11 @@
+I"(function() {
+  $(document).on('click', 'label[for="user_avatar"]', function() {
+    return $('#avatar_save').css('display', 'block');
+  });
+
+  $(document).on('ready page:load', function() {
+    return $('#calendar').fullCalendar(function() {});
+  });
+
+}).call(this);
+:ET

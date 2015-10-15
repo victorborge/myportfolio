@@ -1,0 +1,53 @@
+.profile-container {
+  padding-top: 30px;
+  margin-bottom: 100px; //temp
+  h1 {
+    font-family: $font-didot-headline;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  h2 {
+    margin-top: 10px;
+    color: $brand-primary-dark;
+    font-family: $font-dolce-vita;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .avatar {
+    width: 300px;
+  }
+  #user_avatar, #avatar_save {
+    display: none;
+  }
+  .profile {
+    margin-top: 30px;
+    li {
+      margin-bottom: 10px;
+      .title {
+        color: $brand-primary-dark;
+        padding-left: 5px;
+        font-size: 16px;
+        font-family: $font-dolce-vita;
+      }
+      .attribute {
+        display: block;
+        padding-left: 25px;
+      }
+      &::before {
+        @extend .diamond;
+        content: " ";
+        background: $brand-primary-dark;
+      }
+    }
+  }
+  .logo {
+    width: 100px;
+  }
+  .sponsors {
+    text-align: center;
+    img {
+      margin-bottom: 30px;
+    }
+  }
+}

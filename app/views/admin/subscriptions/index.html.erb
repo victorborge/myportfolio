@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Subscriptions</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Member Name</th>
+      <th>Member Email</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Activated On</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.user.full_name %></td>
+        <td><%= subscription.user.email %></td>
+        <td><%= subscription.plan_type.capitalize %></td>
+        <td><%= subscription.state %></td>
+        <td><%= subscription.activated_at.to_formatted_s(:long) %></td>
+        <td><%= link_to 'Show User', [:admin, subscription.user], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit User', [:edit, :admin, subscription.user], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Cancel Plan', [:admin, subscription], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @subscriptions, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm' %>
+
+<br>
+
+<%= link_to 'Apply New Subscription', new_admin_subscription_path, class: 'btn btn-primary' %>

@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Announcements, Promotions & Notices</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Type</th>
+      <th>Created By</th>
+      <th>Created At</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= truncate sanitize(post.content, tags: []) %></td>
+        <td><%= post.type %></td>
+        <td><%= post.admin.email %></td>
+        <td><%= post.created_at %></td>
+        <td><%= link_to 'Show', [:admin, post], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, post], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Delete', [:admin, post], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @posts, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm' %>
+
+<br>
+
+<%= link_to 'Create New Post', new_admin_post_path, class: 'btn btn-primary' %>

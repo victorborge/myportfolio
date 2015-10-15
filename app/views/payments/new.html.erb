@@ -1,0 +1,52 @@
+<h1>Packages</h1>
+
+<div class="purchase-container">
+  <div class="col-md-4 col-md-push-2">
+    <div class="tribox">
+      <div class="tribox-section tribox-top">
+        <span class="tribox-main-content">PLATINUM</span>
+        <span class="tribox-sub-content">FOR EXPERTS</span>
+      </div>
+      <div class="tribox-section tribox-mid">
+        <span class="tribox-main-content">$<%= Setting['plans.platinum.pricing.yearly'] %></span>
+        <span class="tribox-sub-content">100 Item Posts<br>200 Featured Posts<br>365 Days Duration</span>
+      </div>
+      <div class="tribox-section tribox-btm">
+        <%= purchase_button('platinum') %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-md-push-2">
+    <div class="tribox">
+      <div class="tribox-section tribox-top">
+        <span class="tribox-main-content">GOLD</span>
+        <span class="tribox-sub-content">FOR BUSINESS</span>
+      </div>
+      <div class="tribox-section tribox-mid">
+        <span class="tribox-main-content">$<%= Setting['plans.gold.pricing.yearly'] %></span>
+        <span class="tribox-sub-content">50 Item Posts<br>10 Featured Posts<br>365 Days Duration</span>
+      </div>
+      <div class="tribox-section tribox-btm">
+        <%= purchase_button('gold') %>
+      </div>
+    </div>
+  </div>
+  <!--<div class="col-md-4">-->
+    <!--<div class="tribox">-->
+      <!--<div class="tribox-section tribox-top">-->
+        <!--<span class="tribox-main-content">SILVER</span>-->
+        <!--<span class="tribox-sub-content">FOR PROS</span>-->
+      <!--</div>-->
+      <!--<div class="tribox-section tribox-mid">-->
+        <!--<span class="tribox-main-content">$1288</span>-->
+        <!--<span class="tribox-sub-content">25 Item Posts<br>5 Featured Posts<br>365 Days Duration</span>-->
+      <!--</div>-->
+      <!--<div class="tribox-section tribox-btm">-->
+        <!--<%#= purchase_button('silver') %>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <%= purchase_modal('gold') %>
+  <%= purchase_modal('platinum') %>
+</div>

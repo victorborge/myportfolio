@@ -1,0 +1,27 @@
+<h1>Item Purchase Received</h1>
+
+<p>Hi <%= @purchase.user.full_name %>,</p>
+<p>
+  We have received your purchase for <strong><%= @purchase.item.name %></strong>.<br>
+  Our logistics personnel will contact you shortly regarding the next available delivery timing.<br>
+  This email serves as a purchase receipt.
+</p>
+
+<p>Thank you!</p>
+
+<hr>
+
+<h2>Item Details</h2>
+
+<p>
+  <strong>Transaction ID:</strong> #<%= "%04d" % @purchase.id %><br>
+  <strong>Item ID:</strong> #<%= "%05d" % @purchase.item.id %><br>
+  <strong>Item Name:</strong> <%= @purchase.item.name %><br>
+  <strong>Quantity:</strong> <%= @purchase.quantity %><br>
+  <strong>Total Price:</strong> <%= number_to_currency @purchase.amount %><br>
+  <strong>Points Used:</strong> <%= @purchase.points %><br>
+  <strong><%= @purchase.paid_at ? 'Amount Paid:' : 'Outstanding COD Amount:' %></strong>
+  <%= number_to_currency @purchase.payment_amount %>
+</p>
+
+<p><small>This is an automated email. No reply is neccessary.</small></p>

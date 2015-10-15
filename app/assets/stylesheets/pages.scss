@@ -1,0 +1,133 @@
+.page-content{
+  margin-bottom: 100px;
+}
+.members-1 {
+  background-image: asset_url('members_1.png');
+  .image-section-content {
+    padding-top: 105px;
+  }
+  p {
+    color: $brand-primary-dark;
+  }
+  border-bottom: 7px solid $brand-primary;
+}
+.members-2 {
+  background-image: asset_url('members_2.png');
+  .image-section-content {
+    padding-top: 60px;
+  }
+}
+.about-1 {
+  background-image: asset_url('about_1.png');
+  .image-section-content {
+    padding-top: 105px;
+  }
+  p {
+    color: $brand-primary-dark;
+  }
+  border-bottom: 7px solid $brand-primary;
+}
+.about-2 {
+  background-image: asset_url('about_2.png');
+  .image-section-content {
+    padding-top: 60px;
+  }
+}
+.testimonials-1 {
+  background-image: asset_url('testimonials_1.png');
+  background-position: top;
+  .image-section-content {
+    padding-top: 105px;
+  }
+  border-bottom: 7px solid $brand-primary;
+}
+.testimonials-2 {
+  text-align: center;
+  header {
+    margin: 60px auto;
+  }
+  h2 {
+    font-family: $font-didot;
+    font-weight: bold;
+  }
+  h4 {
+    font-family: $font-dolce-vita;
+    font-weight: bold;
+    color: $brand-primary;
+  }
+  h5 {
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  .testimonial-image {
+    position: relative;
+    cursor: pointer;
+    .overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      color: white;
+      span {
+        position: absolute;
+        top: calc(50% - 32px);
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-family: $font-didot;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 32px;
+      }
+    }
+    &:hover .overlay {
+      display: block;
+    }
+  }
+  .testimonial-content {
+    padding: 70px;
+    border-right: 1px solid #eceae8;
+  }
+  .testimonial:last-child .testimonial-content {
+    border: none;
+  }
+}
+.careers-1 {
+  background-image: asset_url('careers_1.png');
+  height: 700px;
+  .image-section-content {
+    padding-top: 105px;
+  }
+  p {
+    color: $brand-primary-dark;
+  }
+  border-bottom: 7px solid $brand-primary;
+}
+.careers-2 {
+  background-image: asset_url('careers_2.png');
+  background-position: top;
+  h1 {
+    color: white;
+  }
+  .image-section-content {
+    padding-top: 145px;
+  }
+}
+.steps-block {
+  h2 {
+    font-family: $font-didot;
+    font-weight: bold;
+    font-size: 34px;
+  }
+  h4 {
+    font-family: $font-dolce-vita;
+    font-weight: bold;
+    font-size: 18px;
+    color: $brand-primary;
+  }
+  .heading {
+    margin: 70px auto;
+  }
+}

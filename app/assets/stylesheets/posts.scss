@@ -1,0 +1,15 @@
+.posts-section {
+  hr {
+    border-bottom: 1px solid $brand-primary-dark;
+  }
+  .post-title {
+    font-family: $font-didot-headline;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    small {
+      font-size: 70%;
+      color: $gray-light;
+    }
+  }
+}

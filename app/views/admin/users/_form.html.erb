@@ -1,0 +1,25 @@
+<%= simple_form_for([:admin, @user]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :full_name, label: 'Full Name' %>
+    <%= f.input :nric, label: 'NRIC' %>
+    <%= f.input :mobile_number %>
+    <%= f.input :email %>
+    <%= f.input :address, label: 'Delivery Address' %>
+    <%= f.input :password %>
+    <%= f.input :adjust_points, placeholder: 'e.g. 42 or -10' unless f.object.new_record? %>
+    <%= f.association :parent,
+                      input_html: { class: 'chosen-select', :'data-placeholder' => 'type here to search' },
+                      collection: User.where.not(id: @user.self_and_descendants.collect(&:id)),
+                      label_method: :member_id_with_email,
+                      value_method: :id,
+                      label: 'Recruiter' %>
+    <%= f.association :leader, label_method: :email, value_method: :id, label: 'Leader (Admin)' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Save', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<br>

@@ -1,0 +1,23 @@
+<br>
+<section class="posts-section">
+  <header class="post-title page-header">
+    <%= @post.title %> <small>- <%= @post.created_at.to_date.to_formatted_s(:long) %></small>
+  </header>
+  <section class="post-body">
+    <%= raw @post.content %>
+  </section>
+  <hr>
+</section>
+
+<p>
+  <strong>Type:</strong>
+  <%= @post.type %>
+</p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @post.admin.email %>
+</p>
+
+<%= link_to 'Edit', edit_admin_post_path(@post) %> |
+<%= link_to 'Back', admin_posts_path %>

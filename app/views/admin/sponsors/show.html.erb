@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1><%= @sponsor.name %></h1>
+</div>
+<p>
+  <strong>Logo:</strong>
+  <%= image_tag @sponsor.logo %>
+</p>
+
+<%= link_to 'Edit', edit_admin_sponsor_path(@sponsor), class: 'btn btn-default' %>
+<%= link_to 'Back', admin_sponsors_path, class: 'btn btn-default' %>

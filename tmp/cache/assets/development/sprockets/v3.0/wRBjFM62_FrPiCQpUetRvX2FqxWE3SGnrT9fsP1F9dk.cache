@@ -1,0 +1,7 @@
+I"ù(function() {
+  $(document).on('click', 'label[for="user_avatar"]', function() {
+    return $('#avatar_save').css('display', 'block');
+  });
+
+}).call(this);
+:ET

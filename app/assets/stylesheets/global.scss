@@ -1,0 +1,164 @@
+#mti_wfs_colophon {
+  display: none!important;
+}
+.green {
+  color: green;
+}
+.alert {
+  margin-top: 20px;
+}
+.diamond {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  transform: rotate(45deg);
+  border-radius: 0;
+  margin: 1px 5px;
+  background: $brand-primary;
+}
+li.dropdown > a.active {
+  color: lighten($black, 20%);
+}
+textarea.form-control {
+  min-height: 95px;
+}
+
+span[data-toggle="tooltip"] {
+  cursor: pointer;
+}
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  img {
+    width: 100%;
+  }
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+.btn-clear {
+  background: none;
+  font-family: $font-dolce-vita;
+  font-weight: bold;
+  color: $brand-primary;
+  border-color: $brand-primary;
+  &:hover {
+    color: $brand-primary;
+    background-color: rgba(0,0,0,0.3);
+  }
+}
+.full-image-block {
+  height: 500px;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 50px 0;
+  h1 {
+    color: $brown;
+    font-size: 48px;
+    line-height: 45px;
+    font-family: $font-didot;
+    font-weight: bold;
+  }
+  p {
+    font-family: $font-dolce-vita;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  button {
+    margin-top: 20px;
+  }
+}
+.no-image-block {
+  padding: 60px 0 100px;
+  h2 {
+    font-family: $font-didot;
+    font-weight: bold;
+  }
+  h4 {
+    color: $brand-primary;
+    font-family: $font-dolce-vita;
+    font-weight: bold;
+  }
+  button {
+    margin-top: 45px;
+  }
+}
+
+.steps-block {
+  text-align: center;
+  margin-bottom: 50px;
+  h3 {
+    font-family: $font-dolce-vita;
+    font-weight: bold;
+  }
+  .step {
+    .separators {
+      position: absolute;
+      top: 20px;
+      right: -34px;
+      .separator {
+        @extend .diamond;
+        background: $brand-primary;
+      }
+    }
+  }
+}
+
+.tribox {
+  border: 1px solid $brand-primary-dark;
+  text-align: center;
+  .tribox-section {
+    padding: 20px 0;
+    .tribox-main-content {
+      font-size: 20px;
+      font-family: $font-didot;
+      display: block;
+    }
+    .tribox-sub-content {
+      font-family: $font-dolce-vita;
+      font-weight: bold;
+    }
+  }
+  .tribox-top, .tribox-mid {
+    border-bottom: 1px solid $brand-primary-dark;
+  }
+  .tribox-top {
+    background: black;
+    color: white;
+    .tribox-sub-content {
+      color: $brand-primary-dark;
+    }
+  }
+  .tribox-mid {
+    .tribox-main-content {
+      color: $brand-primary-dark;
+    }
+    .tribox-sub-content {
+      color: $gray-light;
+    }
+  }
+  .tribox-btm {
+    padding: 0;
+    form {
+      width: 100%;
+      height: 100%;
+    }
+    .btn-link {
+      width: 100%;
+      padding: 26px 0;
+      color: white;
+      background: $brand-primary-dark;
+      font-family: $font-dolce-vita;
+      font-weight: bold;
+      &:hover, &:focus {
+        background: lighten($brand-primary-dark, 10%);
+        text-decoration: none;
+        outline: none;
+      }
+    }
+  }
+}

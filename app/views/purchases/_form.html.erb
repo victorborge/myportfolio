@@ -1,0 +1,48 @@
+<%= simple_form_for([:item, @purchase]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th width="50">Quantity</th>
+          <th width="200" class="text-right">Subtotal</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%= @purchase.item.name %></td>
+          <td><%= truncate(strip_tags(@purchase.item.description).gsub('&#13;', ''), length: 50) %></td>
+          <td id="purchase_price" data-amount="<%= @purchase.item.amount %>"><%= number_to_currency @purchase.item.amount %></td>
+          <td><%= f.input :quantity, label: false, input_html: { min: 1 } %></td>
+          <td id="purchase_subtotal" class="text-right"><%= number_to_currency @purchase.item.amount %></td>
+        </tr>
+        <tr>
+          <th colspan="4" class="text-right">Use CV Points</th>
+          <td class="text-right">
+            <%= f.input :points, label: false,
+                        input_html: { class: 'text-right',
+                                      :'data-user_points' => current_user.points,
+                                      min: 0, max: max_points(@purchase) } %>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="4" class="text-right">Total</th>
+          <td id="purchase_total" class="text-right"><%= number_to_currency(@purchase.item.amount - @purchase.points) %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="form-actions text-right">
+      <button class="btn btn-danger<%= ' hidden' if @purchase.item.amount - @purchase.points <= 0 %>" id="cod_button">
+        Pay Balance on Delivery
+      </button>
+      <%= f.input :using_cod, as: :hidden, input_html: { id: 'purchase_using_cod', value: false } %>
+      <%= f.button :submit, "Checkout#{' with Paypal' if @purchase.item.amount - @purchase.points > 0}",
+                   class: 'btn-success', id: 'purchase_button' %>
+    </div>
+<% end %>
